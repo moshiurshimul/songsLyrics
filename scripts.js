@@ -4,15 +4,16 @@ document.getElementById('search-btn').addEventListener('click', function() {
 
     fetch(`https://api.lyrics.ovh/suggest/${songName}`)
     .then(res => res.json())
-    .then(data => {
-        console.log(data);
+    .then(data =>{
+        console.log(data)
         const apiData = data.data
-        document.getElementById('show-songs').style.display = 'block';
-        document.getElementById('first-song-title').innerText = apiData[0].title;
-        document.getElementById('first-song-album').innerText = apiData[0].album.title;
-        
-    
+        for (let i = 0; i < 10; i++) {
+            const element= apiData[i];
+            let showTitle = document.createElement('p');
+            showTitle.className = 'author lead'
+            showTitle.innerHTML = `<strong>${element.title}</strong> Album by <span>${element.album.title}</span> <button class="btn btn-success">Get Lyrics</button>`
+            document.getElementById('show-songs').appendChild(showTitle);
+   }
+
     })
-  })
-
-
+});
