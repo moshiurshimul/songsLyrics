@@ -45,7 +45,7 @@ function songLyrics(artist, title) {
             document.getElementById('show-songs-list').style.display = 'none';
             const showLyrics = document.createElement('div');
             showLyrics.className ='single-lyrics text-center' 
-           showLyrics.innerHTML = `<button class="btn go-back">Return</button>
+           showLyrics.innerHTML = `<button class="btn go-back" onclick="returnBtn()">Return</button>
            <h2 class="text-success mb-4">${artist} - ${title}</h2>
                 <pre id="song-lyrics" class="lyric text-white">${data.lyrics}</pre>`
                 console.log(showLyrics);
@@ -54,3 +54,9 @@ function songLyrics(artist, title) {
         }
      })
 }
+
+function returnBtn() {
+    document.getElementById('show-songs-list').style.display = 'none';
+    document.getElementById('show-lyrics').style.display = 'none';
+    document.getElementById('song-name-input').value = ''
+};
