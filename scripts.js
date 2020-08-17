@@ -1,5 +1,8 @@
 document.getElementById('search-btn').addEventListener('click', function() {
     const songName = document.getElementById('song-name-input').value.trim()
+    document.getElementById('show-songs-list').innerHTML = '';
+    document.getElementById('show-songs-list').style.display = 'block';
+
     fetch(`https://api.lyrics.ovh/suggest/${songName}`)
     .then(res => res.json())
     .then(data => { 
@@ -43,13 +46,10 @@ function songLyrics(artist, title) {
         }
         else{
             document.getElementById('show-songs-list').style.display = 'none';
-            const showLyrics = document.createElement('div');
-            showLyrics.className ='single-lyrics text-center' 
-           showLyrics.innerHTML = `<button class="btn go-back" onclick="returnBtn()">Return</button>
-           <h2 class="text-success mb-4">${artist} - ${title}</h2>
-                <pre id="song-lyrics" class="lyric text-white">${data.lyrics}</pre>`
-            document.getElementById('show-lyrics').appendChild(showLyrics);
-
+            document.getElementById('show-lyrics').innerHTML = `<div class="single-lyrics text-center">
+            <button class="btn go-back" onclick="returnBtn()">Return</button>
+            <h2 class="text-success mb-4">${artist} - ${title}</h2>
+            <pre id="song-lyrics" class="lyric text-white">${data.lyrics}</pre>`;
         }
      })
 }
