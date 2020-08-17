@@ -1,5 +1,6 @@
 document.getElementById('search-btn').addEventListener('click', function() {
-    const songName = document.getElementById('song-name-input').value
+    console.log('clicked');
+    const songName = document.getElementById('song-name-input').value.trim()
     fetch(`https://api.lyrics.ovh/suggest/${songName}`)
     .then(res => res.json())
     .then(data => { 
@@ -48,7 +49,6 @@ function songLyrics(artist, title) {
            showLyrics.innerHTML = `<button class="btn go-back" onclick="returnBtn()">Return</button>
            <h2 class="text-success mb-4">${artist} - ${title}</h2>
                 <pre id="song-lyrics" class="lyric text-white">${data.lyrics}</pre>`
-                console.log(showLyrics);
             document.getElementById('show-lyrics').appendChild(showLyrics);
 
         }
