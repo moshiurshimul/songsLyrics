@@ -36,6 +36,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
     
 });
 
+// Song Lyrics finding
 function songLyrics(artist, title) {
     fetch(`https://api.lyrics.ovh//v1/${artist}/${title}`)
     .then(res => res.json())
@@ -54,6 +55,7 @@ function songLyrics(artist, title) {
      })
 }
 
+// Return button function
 function returnBtn() {
     document.getElementById('show-songs-list').style.display = 'none';
     document.getElementById('show-lyrics').style.display = 'none';
