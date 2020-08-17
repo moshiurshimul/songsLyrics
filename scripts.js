@@ -1,5 +1,4 @@
 document.getElementById('search-btn').addEventListener('click', function() {
-    console.log('clicked');
     const songName = document.getElementById('song-name-input').value.trim()
     fetch(`https://api.lyrics.ovh/suggest/${songName}`)
     .then(res => res.json())
