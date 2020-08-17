@@ -9,10 +9,16 @@ document.getElementById('search-btn').addEventListener('click', function() {
         const apiData = data.data
         for (let i = 0; i < 10; i++) {
             const element= apiData[i];
-            let showTitle = document.createElement('p');
-            showTitle.className = 'author lead'
-            showTitle.innerHTML = `<strong>${element.title}</strong> Album by <span>${element.album.title}</span> <button class="btn btn-success">Get Lyrics</button>`
-            document.getElementById('show-songs').appendChild(showTitle);
+
+            //Song details
+            const songTitle = element.title
+            const albumTitle = element.album.title
+
+            // Showing list after search
+            let showlist = document.createElement('p');
+            showlist.className = 'author lead'
+            showlist.innerHTML = `<strong>${songTitle}</strong> Album by <span>${albumTitle}</span> <button class="btn btn-success">Get Lyrics</button>`
+            document.getElementById('show-songs').appendChild(showlist);
    }
 
     })
