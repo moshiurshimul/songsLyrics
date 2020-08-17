@@ -39,6 +39,9 @@ body{
     border-radius: 15px;
 }
 
-#show-songs {
-    text-align: center;
+.go-back {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 30px;
+    margin-bottom: 50px;
 }
